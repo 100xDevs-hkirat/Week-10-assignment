@@ -15,7 +15,7 @@ npx create-next-app@latest
 
 If you have followed the video from Week 10.2, please select these configs to use the Page router (vs the new NextJS 13 app router)
 
-![Image](photo.jpg, "image")
+![Image](https://github.com/100xDevs-hkirat/Week-10-Assignment/blob/master/photo.jpg?raw=true, "image")
 
 
 The goal is to - 
