@@ -2,7 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+<<<<<<< HEAD
 First, run the development server:
+=======
+Link to it - https://github.com/100xDevs-hkirat/week-10
+
+The assignment of this week is to move the application over to NextJS
+>>>>>>> ab9d5bf (Added link)
 
 ```bash
 npm run dev
