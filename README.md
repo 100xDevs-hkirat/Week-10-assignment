@@ -6,6 +6,8 @@ Until now we've built a basic course selling application
  - It uses Node.js as the Backend server
  - It is written in JS
 
+Link to it - https://github.com/100xDevs-hkirat/week-10
+
 The assignment of this week is to move the application over to NextJS
 
 You can bootstrap a nextjs application by calling -
