@@ -1,8 +1,9 @@
 import { userState } from "../atoms/user";
-import {selector} from "recoil";
+import {RecoilState, RecoilValueReadOnly, selector} from "recoil";
 import { courseState } from "../atoms/course";
+import { CourseType } from "@/lib/db";
 
-export const isCourseLoading = selector({
+export const isCourseLoading: RecoilValueReadOnly<boolean> = selector({
   key: 'isCourseLoaingState',
   get: ({get}) => {
     const state = get(courseState);
@@ -11,7 +12,7 @@ export const isCourseLoading = selector({
   },
 });
 
-export const courseDetails = selector({
+export const courseDetails: RecoilValueReadOnly<CourseType | null> = selector({
   key: 'courseDetailsState',
   get: ({get}) => {
     const state = get(courseState);
@@ -20,11 +21,11 @@ export const courseDetails = selector({
   },
 });
 
-export const courseTitle = selector({
+export const courseTitle: RecoilValueReadOnly<string> = selector({
   key: 'courseTitleState',
   get: ({get}) => {
     const state = get(courseState);
-    if (state.course) {
+    if (state.course != null) {
         return state.course.title;
     }
     return "";
@@ -47,7 +48,7 @@ export const courseImage = selector({
   get: ({get}) => {
     const state = get(courseState);
     if (state.course) {
-        return state.course.image;
+        return state.course.imageLink;
     }
     return "";
   },

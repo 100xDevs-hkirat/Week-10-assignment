@@ -7,6 +7,7 @@ import { BASE_URL } from "../config";
 import { useSetRecoilState } from "recoil";
 import { userState } from "../store/atoms/user";
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 function Signup() {
     const [email, setEmail] = useState("")
@@ -56,7 +57,8 @@ function Signup() {
                                         password: password
                                     })
                                     let data = response.data;
-                                    setUser({ userEmail: email, isLoading: false })
+                                    setUser({ userEmail: email, isLoading: false });
+                                    Cookies.set('token', data.token);
                                     navigate.push("/courses")
                                 }}
 

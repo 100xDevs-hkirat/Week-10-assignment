@@ -7,6 +7,7 @@ import { userEmailState } from '@/store/selector/userEmail'
 import { isUserLoading } from '@/store/selector/isUserLoading'
 import { Nav } from '@/components/Nav'
 import { useEffect } from 'react'
+import InitUser from '@/components/InitUser'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
+
       <Grid container style={{ padding: "5vw" }}>
         <Grid item xs={12} md={6} lg={6}>
           <div style={{ marginTop: 100 }}>

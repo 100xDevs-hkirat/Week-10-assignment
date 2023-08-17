@@ -16,16 +16,16 @@ export default async function adminAuth(req: NextApiRequest, res: NextApiRespons
         }
         jwt.verify(token, SECRET, (err, decoded) => {
             if (err) {
-                return res.status(403).json({ message: 'Cant verify your token' });
+                return res.status(403).json({ message: 'Cant verify your token', isAuth: false });
             }
             if(!decoded || typeof decoded === 'string' || !decoded.username) {
-                return res.status(403).json({ message: "Forbidden!" });
+                return res.status(403).json({ message: "Forbidden!", isAuth: false });
             }
             req.headers['user'] = decoded.username;
             next();
         });
     } else {
         console.log('kksd')
-        res.status(401).json({ message: 'Unauthorized' });
+        res.status(401).json({ message: 'Unauthorized', isAuth: false });
     }
 }
