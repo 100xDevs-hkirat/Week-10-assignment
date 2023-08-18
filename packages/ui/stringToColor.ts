@@ -1,7 +1,7 @@
 export function stringToColor(inputString: string) {
   let hash = 0;
 
-  for (let i = 0; i < inputString.length; i++) {
+  for (let i = 0; i < inputString?.length ?? 0; i++) {
     hash = inputString.charCodeAt(i) + (hash << 5) - hash;
   }
 

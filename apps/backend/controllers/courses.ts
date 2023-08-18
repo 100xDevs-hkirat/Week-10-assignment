@@ -43,3 +43,30 @@ export const getCourseById: RequestHandler = async (req, res) => {
   //   res.status(404).json({ message: 'Course not found' });
   // }
 };
+
+//create course
+export const createCourse: RequestHandler = async (req, res) => {
+  const { title, description, imageLink, price, userId } = req.body;
+
+  if (!title || !description || !imageLink || !price || !userId) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
+
+  //check if user is admin
+  const user = await User.findOne({ _id: userId });
+
+  if (!user?.isAdmin) {
+    return res.status(400).json({ message: "User not admin" });
+  }
+
+  const course = new Course({
+    title,
+    description,
+    imageLink,
+    price,
+    author: userId,
+    published: true,
+  });
+  await course.save();
+  res.json({ message: "Course created successfully", courseId: course.id });
+};

@@ -25,8 +25,8 @@ const courseSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   imageLink: { type: String, required: true },
   author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  authorName: { type: String },
-  category: { type: String },
+  // authorName: { type: String },
+  // category: { type: String },
   published: { type: Boolean, required: true },
 });
 

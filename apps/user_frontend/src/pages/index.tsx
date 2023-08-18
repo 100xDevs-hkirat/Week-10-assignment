@@ -83,11 +83,7 @@ export default function Home({ user }: { user: any }) {
     return () => {};
   }, [user]);
 
-  return (
-    <>
-      <AppBarComponent title="EdKart.co" open={open} setOpen={setOpen} />
-      <DrawerComponent open={open} />
-      <Dashboard open={open} />
-    </>
-  );
+  return <Dashboard />;
 }
+
+Home.getLayout = true;

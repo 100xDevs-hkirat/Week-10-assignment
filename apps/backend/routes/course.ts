@@ -1,4 +1,8 @@
-import { getCourseById, getCourses } from "../controllers/courses";
+import {
+  createCourse,
+  getCourseById,
+  getCourses,
+} from "../controllers/courses";
 import { authenticateJwt } from "../controllers/middleware";
 import {
   // cancelOrder,
@@ -18,3 +22,6 @@ courseRouter.get("/", authenticateJwt, getCourses);
 
 // get course by id
 courseRouter.get("/:courseId", authenticateJwt, getCourseById);
+
+// create course
+courseRouter.post("/", authenticateJwt, createCourse);

@@ -12,6 +12,8 @@ import { userLoggedInState } from "@/store/selectors/isUserLoggedIn";
 import { userLoadingState } from "@/store/selectors/isUserLoading";
 import { userState } from "@/store/atoms/user";
 import { AppBarComponent } from "@/components/AppBarComponent";
+import { DrawerComponent } from "@/components/DrawerComponent";
+import Dashboard from "@/components/Dashboard";
 
 // const inter = Inter({ subsets: ["latin"] });
 export const drawerWidth = 240;
@@ -74,7 +76,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 export default function Home({ user }: { user: any }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const setUser = useSetRecoilState(userState);
   const { push } = useRouter();
 
@@ -84,11 +86,7 @@ export default function Home({ user }: { user: any }) {
     return () => {};
   }, [user]);
 
-  return (
-    <>
-      <AppBarComponent title="EdKart.co" open={open} setOpen={setOpen} />
-      {/* <DrawerComponent open={open} />
-      <Dashboard open={open} /> */}
-    </>
-  );
+  return <Dashboard />;
 }
+
+Home.getLayout = true;

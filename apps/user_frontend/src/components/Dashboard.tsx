@@ -11,9 +11,9 @@ import { WelcomeBar } from "./WelcomeBar";
 
 const steps = ["Purchased course", "completionPercent", "Certified"];
 
-type Props = { open: boolean };
+type Props = {};
 
-export default function Dashboard({ open }: Props) {
+export default function Dashboard({}: Props) {
   const [course, setCourse] = useRecoilState(coursesState);
 
   //fetch courses from backend
@@ -44,8 +44,7 @@ export default function Dashboard({ open }: Props) {
   }, []);
 
   return (
-    <Main open={open}>
-      <Toolbar />
+    <>
       <Container>
         <WelcomeBar />
         <Stack direction="row" useFlexGap flexWrap="wrap">
@@ -89,6 +88,6 @@ export default function Dashboard({ open }: Props) {
           </Box>
         </Stack>
       </Container>
-    </Main>
+    </>
   );
 }
