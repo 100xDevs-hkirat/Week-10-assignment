@@ -5,11 +5,11 @@ import React, { useState } from "react";
 import { Main } from "ui";
 
 export default function Layout({ children }: { children: React.JSX.Element }) {
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
   return (
     <>
-      <AppBarComponent title="EdKart.co" open={open} setOpen={setOpen} />
+      <AppBarComponent title="EdKart" open={open} setOpen={setOpen} />
       <DrawerComponent open={open} />
       <Main open={open}>
         <Toolbar />

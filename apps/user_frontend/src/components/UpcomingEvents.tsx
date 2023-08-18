@@ -1,9 +1,10 @@
-import { Box, Paper, Stack, Typography } from "@mui/material";
+import { Box, CardActionArea, Paper, Stack, Typography } from "@mui/material";
 import { StyledSection } from "ui/StyledSection";
 import { Course } from "../store/atoms/course";
 import { useRecoilValue } from "recoil";
 import { userState } from "@/store/atoms/user";
 import { stringToColor } from "ui";
+import { useRouter } from "next/navigation";
 
 export function UpcomingEvents({
   title,
@@ -12,6 +13,7 @@ export function UpcomingEvents({
   title: string;
   // comingSoonCourses: Course[];
 }) {
+  const router = useRouter();
   const { user } = useRecoilValue(userState); //todo add selector
   return (
     <StyledSection sx={{ display: "flex", flexDirection: "column" }}>
@@ -24,13 +26,30 @@ export function UpcomingEvents({
             <Paper
               key={course.title + index}
               sx={{
-                padding: "10px",
+                ...(course.imageLink
+                  ? {
+                      backgroundImage: `url(${course.imageLink})`,
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                    }
+                  : {}),
                 borderRadius: "10px",
                 backgroundColor: stringToColor(course.title),
                 // marginRight: 2,
               }}
             >
-              {course.title}
+              <CardActionArea
+                sx={{
+                  ...(course.imageLink
+                    ? { background: "rgba(255,255,255,0.3)" }
+                    : {}),
+                  padding: "10px",
+                }}
+                onClick={() => router.push(`/courses/${course._id}`)}
+              >
+                {course.title}
+              </CardActionArea>
             </Paper>
           ))}
         </Stack>

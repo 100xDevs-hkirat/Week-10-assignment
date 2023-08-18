@@ -2,6 +2,8 @@ import {
   createCourse,
   getCourseById,
   getCourses,
+  purchaseCourse,
+  removeCourse,
 } from "../controllers/courses";
 import { authenticateJwt } from "../controllers/middleware";
 import {
@@ -25,3 +27,9 @@ courseRouter.get("/:courseId", authenticateJwt, getCourseById);
 
 // create course
 courseRouter.post("/", authenticateJwt, createCourse);
+
+//purchase course
+courseRouter.post("/purchase/:courseId", authenticateJwt, purchaseCourse);
+
+//remove course
+courseRouter.post("/remove/:courseId", authenticateJwt, removeCourse);

@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.JSX.Element }) {
 
   return (
     <>
-      <AppBarComponent title="EdKart.co" open={open} setOpen={setOpen} />
+      <AppBarComponent title="EdKart" open={open} setOpen={setOpen} />
       <DrawerComponent open={open} />
       <Main open={open}>
         <Toolbar />

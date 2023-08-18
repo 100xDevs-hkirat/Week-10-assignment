@@ -110,7 +110,7 @@ export default function Dashboard({}: Props) {
             <TextField
               error={Boolean(errors?.imageLink)}
               helperText={errors?.imageLink?.type}
-              {...register("imageLink", { required: true, maxLength: 20 })}
+              {...register("imageLink", { required: true, maxLength: 200 })}
               type="url"
               size="small"
               margin="normal"
