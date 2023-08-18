@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "dotenv -- turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -13,7 +13,7 @@
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
-  "name": "EdKart.co3",
+  "name": "EdKart.co",
   "packageManager": "npm@9.6.7",
   "workspaces": [
     "apps/*",

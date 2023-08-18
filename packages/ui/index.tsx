@@ -1,5 +1,6 @@
-import * as React from "react";
-
 // component exports
-export * from "./Button";
-export * from "./Header";
+export * from "./Main";
+export * from "./Recommended";
+export * from "./UserProgress";
+export * from "./theme";
+export * from "./constants";
