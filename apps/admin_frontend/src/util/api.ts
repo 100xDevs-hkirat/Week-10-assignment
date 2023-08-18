@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from "axios";
 import Cookies from "js-cookie";
 
 export const api: AxiosInstance = axios.create({
-  baseURL: `${process.env["BACKEND_BASE_URL"]}/api/`,
+  baseURL: `${process.env["NEXT_PUBLIC_BACKEND_URL"]}/api/`,
 });
 
 // Add a request interceptor

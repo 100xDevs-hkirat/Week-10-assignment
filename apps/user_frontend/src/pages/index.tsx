@@ -29,13 +29,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   //fetch user data from the backend
-  const res = await fetch(`${process.env["BACKEND_BASE_URL"]}/api/user`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const res = await fetch(
+    `${process.env["NEXT_PUBLIC_BACKEND_URL"]}/api/user`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   //check for status ok
   if (!res.ok) {
