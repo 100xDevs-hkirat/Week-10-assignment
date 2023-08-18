@@ -1,20 +1,7 @@
 import { Box, Paper, Stack, Typography } from "@mui/material";
-import { StyledSection } from "./StyledSection";
-import { Course } from "../../apps/user_frontend/src/store/atoms/course";
-
-export function stringToColor(inputString: string) {
-  let hash = 0;
-
-  for (let i = 0; i < inputString.length; i++) {
-    hash = inputString.charCodeAt(i) + (hash << 5) - hash;
-  }
-
-  const hue = Math.abs(hash) % 360; // Use the hash as the hue value
-  const saturation = 50; // Adjust saturation as needed
-  const lightness = 50; // Adjust lightness as needed
-
-  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-}
+import { StyledSection } from "ui/StyledSection";
+import { Course } from "../store/atoms/course";
+import { stringToColor } from "ui";
 
 export function Recommended({
   title,

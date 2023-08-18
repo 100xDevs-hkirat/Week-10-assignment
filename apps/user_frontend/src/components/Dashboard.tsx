@@ -1,19 +1,13 @@
-import { Main, Recommended, UserProgress } from "ui";
-import {
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Main } from "ui";
+import { Box, Container, Stack, Toolbar } from "@mui/material";
 import { useEffect } from "react";
 import { api } from "@/util/api";
 import { useRecoilState } from "recoil";
 import { coursesState } from "@/store/atoms/course";
-import { CalendarToday } from "@mui/icons-material";
 import { UpcomingEvents } from "./UpcomingEvents";
+import { UserProgress } from "./UserProgress";
+import { Recommended } from "./Recommended";
+import { WelcomeBar } from "./WelcomeBar";
 
 const steps = ["Purchased course", "completionPercent", "Certified"];
 
@@ -76,7 +70,7 @@ export default function Dashboard({ open }: Props) {
             height={"69vh"}
           >
             <UpcomingEvents
-              title="Up coming"
+              title="My Courses"
               // comingSoonCourses={
               //   (user as any).purchasedCourses ?? []
               //   // Array(10).fill({ name: "course" })
@@ -96,37 +90,5 @@ export default function Dashboard({ open }: Props) {
         </Stack>
       </Container>
     </Main>
-  );
-}
-
-function WelcomeBar() {
-  function getGreeting() {
-    const currentTime = new Date();
-    const currentHour = currentTime.getHours();
-
-    if (currentHour < 12) {
-      return "Good morning";
-    } else if (currentHour < 18) {
-      return "Good afternoon";
-    } else {
-      return "Good night";
-    }
-  }
-  return (
-    <Box
-      display={"flex"}
-      justifyContent={"space-between"}
-      alignItems={"center"}
-      marginTop={2}
-      padding={2}
-    >
-      <Typography variant="h4">{getGreeting()}</Typography>
-      <Button startIcon={<CalendarToday />} color="inherit">
-        {new Date().toLocaleString(undefined, {
-          year: "numeric",
-          month: "long",
-        })}
-      </Button>
-    </Box>
   );
 }
