@@ -6,6 +6,6 @@ export const userLoggedInState = selector({
   get: ({ get }) => {
     const state = get(userState);
 
-    return Boolean(state.email);
+    return Boolean(state.user);
   },
 });
