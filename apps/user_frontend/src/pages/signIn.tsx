@@ -54,10 +54,6 @@ export default function Login({}: Props) {
     return () => {};
   }, [userAtom]);
 
-  // const api: AxiosInstance = axios.create({
-  //   baseURL: "http://localhost:5001/api/",
-  // });
-
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };

@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   //fetch user data from the backend
-  const res = await fetch("http://localhost:5001/api/user", {
+  const res = await fetch(`${process.env["BACKEND_BASE_URL"]}/api/user`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

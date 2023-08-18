@@ -19,6 +19,7 @@ import React, { use, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { userState } from "@/store/atoms/user";
 import { useRecoilState } from "recoil";
+import { api } from "@/util/api";
 
 type Props = {};
 
@@ -52,10 +53,6 @@ export default function Login({}: Props) {
 
     return () => {};
   }, [userAtom]);
-
-  const api: AxiosInstance = axios.create({
-    baseURL: "http://localhost:5001/api/",
-  });
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
