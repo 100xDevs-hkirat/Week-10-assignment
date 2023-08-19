@@ -16,15 +16,17 @@ import {
   SpaceDashboard,
   TravelExplore,
 } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 
 const tabs = [
-  { label: "Dashboard", icon: <SpaceDashboard /> },
-  { label: "Discover", icon: <TravelExplore /> },
-  { label: "Calendar", icon: <EditCalendar /> },
-  { label: "Community", icon: <People /> },
+  { label: "Dashboard", icon: <SpaceDashboard />, route: "/" },
+  { label: "Discover", icon: <TravelExplore />, route: "/courses" },
+  { label: "Calendar", icon: <EditCalendar />, route: "/calendar" },
+  { label: "Community", icon: <People />, route: "/community" },
 ];
 
 export function DrawerComponent({ open }: { open: boolean }) {
+  const { push } = useRouter();
   return (
     <SwipeableDrawer
       sx={{
@@ -44,9 +46,9 @@ export function DrawerComponent({ open }: { open: boolean }) {
       <Toolbar />
       <Box>
         <List>
-          {tabs.map(({ label, icon }, index) => (
+          {tabs.map(({ label, icon, route }, index) => (
             <ListItem key={label} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => push(route)}>
                 <ListItemIcon>{icon}</ListItemIcon>
                 <ListItemText primary={label} />
               </ListItemButton>
