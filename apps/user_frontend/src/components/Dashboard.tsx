@@ -76,7 +76,7 @@ export default function Dashboard({}: Props) {
               // }
             />
           </Box>
-          <Box display={"flex"} padding={2} width={"100%"}>
+          {/* <Box display={"flex"} padding={2} width={"100%"}>
             <UserProgress
               steps={steps}
               title="Your progress"
@@ -85,7 +85,7 @@ export default function Dashboard({}: Props) {
                 progress: 75,
               })}
             />
-          </Box>
+          </Box> */}
         </Stack>
       </Container>
     </>
