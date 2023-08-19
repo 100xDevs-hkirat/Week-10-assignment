@@ -1,26 +1,18 @@
-## Migrate the course selling app to next.js
+# EdKart Project
 
-Until now we've built a basic course selling application
- - It uses React for the frontend
- - It uses MongoDB as the database
- - It uses Node.js as the Backend server
- - It is written in JS
+Welcome to the EdKart project! This repository contains the code for the user frontend and admin frontend of EdKart.
 
-Link to it - https://github.com/100xDevs-hkirat/week-10
+## User Frontend
 
-The assignment of this week is to move the application over to NextJS
+Visit the User Frontend at: [edkart.vercel.app](https://edkart.vercel.app)
 
-You can bootstrap a nextjs application by calling -
-```
-npx create-next-app@latest
-```
+The User Frontend provides a user-friendly interface for browsing and shopping for educational materials.
 
-If you have followed the video from Week 10.2, please select these configs to use the Page router (vs the new NextJS 13 app router)
+## Admin Frontend
 
-![Image](https://github.com/100xDevs-hkirat/Week-10-Assignment/blob/master/photo.jpg?raw=true, "image")
+Access the Admin Frontend at: [edkart-admin.vercel.app](https://edkart-admin.vercel.app)
 
+The Admin Frontend is designed for administrators to manage and update the content.
 
-The goal is to - 
- - Move the frontend over to NextJS
- - Move the backend over to NextJS API
- - Convert the complete project to Typescript (and not use JS)
+Feel free to explore both frontends and contribute to the project!
+
