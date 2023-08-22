@@ -8,12 +8,19 @@ function Courses() {
     const [courses, setCourses] = useState([]);
 
     const init = async () => {
+        try {
         const response = await axios.get(`${BASE_URL}/admin/courses/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
         })
         setCourses(response.data.courses)
+        }
+        catch(_err){
+            console.log(_err);
+            setCourses([]);
+        }
+
     }
 
     useEffect(() => {
