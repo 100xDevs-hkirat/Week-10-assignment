@@ -1,4 +1,4 @@
-import { userState } from "../atoms/user";
+import { userState } from "@/store/atoms/user";
 import {selector} from "recoil";
 
 export const userEmailState = selector({
