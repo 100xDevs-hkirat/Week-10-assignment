@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { AdminModel } from '@/db/index';
 import { connectDB } from '@/db/connect';
-
 // interface LoginRequest {
 //     username : string
 //     password : string
@@ -16,8 +15,8 @@ export default async function handler(
     res: NextApiResponse<LoginResponse>
 ) {
     await connectDB();
-    const username = req.headers.username;
-    const password = req.headers.password;
+    const username = req.body.username;
+    const password = req.body.password;
     if (!username || !password)
         return res.status(401).json({ message: 'username and password required' });
     const admin = await AdminModel.findOne({ username, password });

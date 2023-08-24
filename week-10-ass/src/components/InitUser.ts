@@ -8,7 +8,7 @@ export function InitUser() {
     const setUser = useSetRecoilState(userState);   
     const init = async() => {
         try {
-            const response = await axios.get(`${BASE_URL}/admin/me`, {})
+            const response = await axios.get(`${BASE_URL}/admin/me`)
   
             if (response.data.username) {
                 setUser({
