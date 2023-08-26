@@ -50,7 +50,7 @@ function Appbar({}) {
                     <Button
                         variant={"contained"}
                         onClick={() => {
-                            localStorage.setItem("token", "");
+                            router.push("/api/logout")
                             setUser({
                                 isLoading: false,
                                 userEmail: null

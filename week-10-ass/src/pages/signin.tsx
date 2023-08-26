@@ -26,7 +26,7 @@ function Signin() {
                 </Typography>
             </div>
         <div style={{display: "flex", justifyContent: "center"}}>
-            <Card varint={"outlined"} style={{width: 400, padding: 20}}>
+            <Card style={{width: 400, padding: 20}}>
                 <TextField
                     onChange={(evant11) => {
                         let elemt = evant11.target;
