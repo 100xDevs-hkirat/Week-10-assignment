@@ -24,6 +24,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse<res
     const admin = await Admin.findOne({ username, password });
 
     if (admin) {
+        
       const token = jwt.sign({ username, role: 'admin' }, SECRET, { expiresIn: '1h' });
       res.json({ message: 'Logged in successfully', token });
     } else {

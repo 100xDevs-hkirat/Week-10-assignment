@@ -19,7 +19,7 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse){
             res.json({ message: 'Course created successfully', courseId: course._id });
          
     }else{
-        const courses = await Course.find();
+        const courses = await Course.find({});
         console.log(courses);
         res.json({ courses:courses });
     }
