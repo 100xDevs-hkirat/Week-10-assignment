@@ -47,7 +47,7 @@ function Course({course}:{course:Course}) {
 
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await axios.get('http://localhost:3000/api/admin/courses/');
+    const res = await axios.get('https://course-selling-web-6auch7wo2-codergirl2023.vercel.app/api/admin/courses/');
     const courses = await res.data.courses;
    
     // Pass data to the page via props
