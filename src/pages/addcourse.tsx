@@ -4,11 +4,12 @@ import { Card } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 
+
 function AddCourse() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState("0")
 
     return <div style={{ display: "flex", justifyContent: "center", minHeight: "80vh", flexDirection: "column" }}>
         <div style={{ display: "flex", justifyContent: "center" }}>

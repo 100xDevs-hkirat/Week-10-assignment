@@ -10,7 +10,7 @@ connectToDB();
 type Data = {
     message?: string;
 }
-const SECRET = process.env.SECRET;
+const SECRET = process.env.SECRET || "";
 
 export default async function handler(
     req: NextApiRequest,

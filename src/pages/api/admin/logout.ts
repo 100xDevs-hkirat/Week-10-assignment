@@ -13,7 +13,7 @@ export default async function (req:NextApiRequest, res:NextApiResponse<responseD
   if (!jwt) {
     return res.json({ message: "Bro you are already not logged in..." });
   } else {
-    const serialised = serialize("courseraJWT", null, {
+    const serialised = serialize("courseraJWT", "", {
       httpOnly: true,
       sameSite: "strict",
       maxAge: -1,

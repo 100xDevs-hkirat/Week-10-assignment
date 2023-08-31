@@ -4,11 +4,13 @@ import { Admin } from '../../../lib/db';
 import { sign } from 'jsonwebtoken';
 import { serialize } from 'cookie';
 import connectToDB from '@/lib/dbConnect'; 
+
 connectToDB();
+
 type Data = {
     message?: string;
 }
-const SECRET = process.env.SECRET;
+const SECRET = process.env.SECRET || "";
 
 export default async function handler(
     req: NextApiRequest,

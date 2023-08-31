@@ -1,6 +1,17 @@
 import {atom} from "recoil";
-
-export const courseState = atom({
+interface Course {
+  title:string;
+  description:string;
+  _id:string;
+  price:string;
+  imageLink:string;
+  published?:boolean;
+}
+export interface CourseProps {
+  course: Course | null;
+  isLoading: boolean;
+}
+export const courseState = atom<CourseProps>({
   key: 'courseState',
   default: {
     isLoading: true,

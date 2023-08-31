@@ -8,7 +8,7 @@ import { useSetRecoilState } from "recoil";
 import { userState } from "../../store/atoms/user";
 
 function Signin() {
-    const [email, setEmail] = useState(null)
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
 
     const router = useRouter();

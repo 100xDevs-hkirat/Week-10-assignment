@@ -8,6 +8,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { courseTitle, coursePrice, isCourseLoading, courseImage } from "../../../store/selectors/course";
 import { useRouter } from 'next/router'
 
+ 
 function Course() {
     const router = useRouter()
     const { courseId } = router.query
@@ -57,12 +58,12 @@ function GrayTopper() {
 
 function UpdateCard() {
     const [courseDetails, setCourse] = useRecoilState(courseState);
-    const course = courseDetails.course;
+    const course = courseDetails.course || {title:"", description:"",imageLink:"",price:"",_id:""};
     const [title, setTitle] = useState(course.title);
     const [description, setDescription] = useState(course.description);
     const [image, setImage] = useState(course.imageLink);
     const [price, setPrice] = useState(course.price);
-
+    
     return <div style={{ display: "flex", justifyContent: "center" }}>
         <Card variant={"outlined"} style={{ maxWidth: 600, marginTop: 200 }}>
             <div style={{ padding: 20 }}>
@@ -122,7 +123,7 @@ function UpdateCard() {
                         }, {
 
                         });
-                        let updatedCourse = {
+                        const updatedCourse = {
                             _id: course._id,
                             title: title,
                             description: description,
@@ -138,7 +139,7 @@ function UpdateCard() {
     </div>
 }
 
-function CourseCard(props) {
+function CourseCard() {
     const title = useRecoilValue(courseTitle);
     const imageLink = useRecoilValue(courseImage);
 

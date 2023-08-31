@@ -7,13 +7,14 @@ connectToDB();
 type Data = {
     message?: string;
     courseId?: number;
+    courses?: any
 }
 
 export default async function handler(req: NextApiRequest,
     res: NextApiResponse<Data>){
         if(req.method === 'GET') {
             const courses = await Course.find({});
-            res.json({ courses });
+            res.json({ courses: courses });
         }else{
             const course = new Course(req.body);
             await course.save();

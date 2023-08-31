@@ -1,9 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { JwtPayload, verify } from 'jsonwebtoken';
+import { verify } from 'jsonwebtoken';
 import {Admin} from '../../../lib/db';
 
-const SECRET = process.env.SECRET;
+const SECRET = process.env.SECRET || "";
+interface JwtPayload {
+    username?: string;
+  }
+
 type Data = {
     msg?: string,
     username?: JwtPayload | string
@@ -20,12 +24,8 @@ export default async function handler(
     if (!token) {
         return res.status(403).json({ msg: "cookie token not found" });
     } else {
-        verify(token, SECRET, (err, user) => {
-            if (err) {
-                return res.status(403);
-            }
-            username = user.username;
-        })
+        username = verify(token, SECRET) as JwtPayload;
+
         const admin = await Admin.findOne({ username });
         if (!admin) {
             res.status(403).json({msg: "Admin doesn't exist"})
