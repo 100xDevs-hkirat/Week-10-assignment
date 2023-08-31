@@ -19,14 +19,14 @@ export default async function handler(
 ) {
     const { cookies } = req;
     const token = cookies.courseraJWT;
-    let username;
+    let user;
 
     if (!token) {
         return res.status(403).json({ msg: "cookie token not found" });
     } else {
-        username = verify(token, SECRET) as JwtPayload;
+        user = verify(token, SECRET) as JwtPayload;
 
-        const admin = await Admin.findOne({ username });
+        const admin = await Admin.findOne({ username: user.username });
         if (!admin) {
             res.status(403).json({msg: "Admin doesn't exist"})
             return
