@@ -1,7 +1,12 @@
 import { Button, Card, Typography } from "@mui/material";
 import {useRouter} from "next/router";
 import axios from "axios";
+import { NextApiRequest } from "next";
+import { GetServerSidePropsContext } from 'next';
 
+interface ContextType {
+    req:NextApiRequest
+}
 interface Course {
     title:string;
     description:string;
@@ -45,9 +50,16 @@ function Course({course}:{course:Course}) {
 
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context:GetServerSidePropsContext) {
+    const { req} = context;
+    let apiUrl='';
+    if (req) {
+       let host = req.headers.host 
+       console.log(host)
+       apiUrl = 'https://' + host + '/api/admin/courses'
+      }
     // Fetch data from external API
-    const res = await axios.get('https://course-selling-web-6auch7wo2-codergirl2023.vercel.app/api/admin/courses/');
+    const res = await axios.get(apiUrl);
     const courses = await res.data.courses;
    
     // Pass data to the page via props
