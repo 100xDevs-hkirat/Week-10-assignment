@@ -18,6 +18,6 @@ export default async function handler(req: NextApiRequest,
         }else{
             const course = new Course(req.body);
             await course.save();
-            res.json({ message: 'Course created successfully', courseId: course.id });
+            res.json({ message: 'Course created successfully', courseId: course._id });
         }
 }

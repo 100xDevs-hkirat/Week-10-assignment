@@ -5,8 +5,8 @@ import axios from "axios";
 interface Course {
     title:string;
     description:string;
-    _id:number;
-    price:number;
+    _id:string;
+    price:string;
     imageLink:string;
     published:boolean;
 }
