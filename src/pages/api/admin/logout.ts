@@ -1,11 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { serialize } from "cookie";
 import type { NextApiRequest, NextApiResponse } from 'next'
+import {Data} from '../../../../types/types'
 
-type responseData = {
-    message?:string
-}
-export default async function (req:NextApiRequest, res:NextApiResponse<responseData>) {
+export default async function (req:NextApiRequest, res:NextApiResponse<Data>) {
   const { cookies } = req;
 
   const jwt = cookies.courseraJWT;

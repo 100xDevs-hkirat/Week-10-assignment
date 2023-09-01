@@ -1,14 +1,8 @@
 import {Course} from '../../../lib/db'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import connectToDB from '@/lib/dbConnect'; 
-
+import {Data} from '../../../../types/types'
 connectToDB();
-
-type Data = {
-    message?: string;
-    courseId?: number;
-    courses?: any
-}
 
 export default async function handler(req: NextApiRequest,
     res: NextApiResponse<Data>){

@@ -2,16 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { verify } from 'jsonwebtoken';
 import {Admin} from '../../../lib/db';
+import {Data, JwtPayload} from '../../../../types/types'
 
 const SECRET = process.env.SECRET || "";
-interface JwtPayload {
-    username?: string;
-  }
-
-type Data = {
-    msg?: string,
-    username?: JwtPayload | string
-}
 
 export default async function handler(
     req: NextApiRequest,
@@ -22,13 +15,13 @@ export default async function handler(
     let user;
 
     if (!token) {
-        return res.status(403).json({ msg: "cookie token not found" });
+        return res.status(403).json({ message: "cookie token not found" });
     } else {
         user = verify(token, SECRET) as JwtPayload;
 
         const admin = await Admin.findOne({ username: user.username });
         if (!admin) {
-            res.status(403).json({msg: "Admin doesn't exist"})
+            res.status(403).json({message: "Admin doesn't exist"})
             return
         }
         res.json({

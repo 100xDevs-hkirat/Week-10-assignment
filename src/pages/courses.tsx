@@ -3,22 +3,7 @@ import {useRouter} from "next/router";
 import axios from "axios";
 import { NextApiRequest } from "next";
 import { GetServerSidePropsContext } from 'next';
-
-interface ContextType {
-    req:NextApiRequest
-}
-interface Course {
-    title:string;
-    description:string;
-    _id:string;
-    price:string;
-    imageLink:string;
-    published:boolean;
-}
-
-interface CoursesProps {
-    courses: Course[];
-}
+import { Course, CoursesProps } from "../../types/types";
 
 function Courses({courses}:CoursesProps) {
 

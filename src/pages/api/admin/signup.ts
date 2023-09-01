@@ -4,12 +4,11 @@ import { Admin } from '../../../lib/db';
 import { sign } from 'jsonwebtoken';
 import { serialize } from 'cookie';
 import connectToDB from '@/lib/dbConnect'; 
+import {Data} from '../../../../types/types'
 
 connectToDB();
 
-type Data = {
-    message?: string;
-}
+
 const SECRET = process.env.SECRET || "";
 
 export default async function handler(
