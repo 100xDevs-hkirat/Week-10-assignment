@@ -50,23 +50,24 @@ function Signin() {
                 <Button
                     size={"large"}
                     variant="contained"
-                    onClick={async () => {
-                       
-                        const res = await axios.post('/api/admin/signin', null, {
+                    onClick={() => {
+
+                        axios.post('/api/admin/signin', null, {
                             headers: {
                                 "Content-type": "application/json",
-                                "username":email, 
+                                "username": email,
                                 password
                             }
-                        });
-                        const data = res.data;
-                        
-                        // window.location = "/"
-                        setUser({
-                            userEmail: email,
-                            isLoading: false
+                        }).then(()=> {
+                            setUser({
+                                userEmail: email,
+                                isLoading: false
+                            })
+                            router.push("/courses")
+                        }).catch((e) => {
+                            alert(e.response.data.message);
                         })
-                        router.push("/courses")
+
                     }}
 
                 > Signin</Button>

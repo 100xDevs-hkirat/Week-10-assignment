@@ -15,7 +15,6 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     const { username, password } = req.headers;
-    console.log("username =", username)
     const admin = await Admin.findOne({ username, password });
     if (!admin) {
         res.status(403).json({ message: 'Invalid username or password' });
@@ -26,7 +25,6 @@ export default async function handler(
             SECRET,
             {
                 expiresIn: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30 // 30 days
-
             }
         );
 

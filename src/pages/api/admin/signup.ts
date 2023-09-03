@@ -19,7 +19,7 @@ export default async function handler(
 
     const callback = (admin: any) => {
         if (admin) {
-            res.status(403).json({ message: 'Admin already exists' });
+            res.status(403).json({ message: 'Admin with this email already exists' });
         } else {
             const obj = { username: username, password: password };
             const newAdmin = new Admin(obj);

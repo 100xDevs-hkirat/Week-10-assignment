@@ -1,20 +1,21 @@
 import { Button, Card, Typography } from "@mui/material";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import axios from "axios";
 import { NextApiRequest } from "next";
 import { GetServerSidePropsContext } from 'next';
 import { Course, CoursesProps } from "../../types/types";
 
-function Courses({courses}:CoursesProps) {
+function Courses({ courses }: CoursesProps) {
 
-    return <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+    return <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
         {courses.map(course => {
-            return <Course course={course} />}
+            return <Course course={course} />
+        }
         )}
     </div>
 }
 
-function Course({course}:{course:Course}) {
+function Course({ course }: { course: Course }) {
     const router = useRouter();
 
     return <Card style={{
@@ -25,8 +26,8 @@ function Course({course}:{course:Course}) {
     }}>
         <Typography textAlign={"center"} variant="h5">{course.title}</Typography>
         <Typography textAlign={"center"} variant="subtitle1">{course.description}</Typography>
-        <img src={course.imageLink} style={{width: 300}} ></img>
-        <div style={{display: "flex", justifyContent: "center", marginTop: 20}}>
+        <img src={course.imageLink} style={{ width: 300 }} ></img>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
             <Button variant="contained" size="large" onClick={() => {
                 router.push("/course/" + course._id);
             }}>Edit</Button>
@@ -35,18 +36,19 @@ function Course({course}:{course:Course}) {
 
 }
 
-export async function getServerSideProps(context:GetServerSidePropsContext) {
-    const { req} = context;
-    let apiUrl='';
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+    const { req } = context;
+    let apiUrl = '';
     if (req) {
-       let host = req.headers.host 
-       console.log(host)
-       apiUrl = 'https://' + host + '/api/admin/courses'
-      }
+        const host = req.headers?.host;
+        const protocol = host?.startsWith("localhost") ? "http://" : "https://";
+        apiUrl = protocol + host + '/api/admin/courses';
+    }
+    console.log(apiUrl)
     // Fetch data from external API
     const res = await axios.get(apiUrl);
     const courses = await res.data.courses;
-   
+
     // Pass data to the page via props
     return { props: { courses } }
 }
