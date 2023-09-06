@@ -43,6 +43,9 @@ To run this project locally, follow these steps:
 3. Set up your MongoDB database and configure the necessary credentials.
 4. Create a `.env.local` file and provide the required environment variables (e.g., JWT secret, MongoDB connection).
 5. Start the development server using `npm run dev` or `yarn dev`.
+![](https://github.com/codergirl2023/Course-Selling-Web-app/blob/master/ezgif.com-video-to-gif%20(1).gif)
+![](https://github.com/codergirl2023/Course-Selling-Web-app/blob/master/ezgif.com-video-to-gif%20(2).gif)
+![](https://github.com/codergirl2023/Course-Selling-Web-app/blob/master/ezgif.com-video-to-gif%20(3).gif)
 
 ## Contributing
 
