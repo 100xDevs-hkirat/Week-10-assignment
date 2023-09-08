@@ -12,17 +12,17 @@ import { useRouter } from 'next/router';
 function Course() {
     // let { courseId } = useParams();
     const router = useRouter();
-    const {courseId} = router.query;
+
+    console.log("LOG_ROUTER" , router);
+    const courseId = router.route;
+   
     console.log("coutse id" , courseId);
     const setCourse = useSetRecoilState(courseState);
     const courseLoading = useRecoilValue(isCourseLoading);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/admin/course/${courseId}`, {
-            method: "GET",
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("token")
-            }
+            method: "GET"
         }).then(res => {
             setCourse({isLoading: false, course: res.data.course});
         })
