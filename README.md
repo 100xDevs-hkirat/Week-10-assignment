@@ -13,8 +13,6 @@ Welcome to the Course Selling App! This Next.js project offers a platform for us
 - **MongoDB**: A NoSQL database for storing and managing course and user data.
 - **TypeScript**: A statically typed superset of JavaScript for improved development efficiency and code quality.
 - **Server-Side Rendering (SSR)**: Providing initial page load performance and SEO benefits.
-- **... (Add any other technologies you've used)**
-
 ## Features
 
 ### User Authentication
